@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Box, Menu } from 'lucide-react';
+import { Box, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -9,10 +9,13 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ isScrolled, onOpenPlanning }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -63,20 +66,61 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, onOpenPlanning }) =>
           ))}
         </nav>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onOpenPlanning}
-            className="bg-black text-white px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-xl hidden md:block"
+            className="bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-xl hidden sm:block"
           >
             Start Project
           </motion.button>
-          <button className="lg:hidden">
-            <Menu size={24} />
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 hover:bg-zinc-100 rounded-lg transition-all"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-zinc-100 shadow-lg"
+        >
+          <div className="max-w-[1440px] mx-auto px-4 py-6 flex flex-col gap-4">
+            {[
+              { name: 'About', id: 'about' },
+              { name: 'Expertise', id: 'services' },
+              { name: 'Portfolio', id: 'portfolio' },
+              { name: 'Travel', id: 'travel' }
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-left text-[12px] font-bold uppercase tracking-[0.2em] text-zinc-600 hover:text-black transition-colors py-2 border-b border-zinc-50"
+              >
+                {item.name}
+              </button>
+            ))}
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                onOpenPlanning();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full bg-black text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-lg mt-2"
+            >
+              Start Project
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
     </header>
   );
 };
