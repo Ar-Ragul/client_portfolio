@@ -47,7 +47,7 @@ export const About: React.FC = () => {
           >
             <div className="aspect-[4/3] rounded-[60px] overflow-hidden shadow-3xl bg-zinc-100 border-[1px] border-zinc-200">
               <img 
-                src="/Assets/IMG_2302.JPEG" 
+                src="/IMG_2302.JPEG" 
                 alt="Architectural Detail"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out transform group-hover:scale-105"
               />

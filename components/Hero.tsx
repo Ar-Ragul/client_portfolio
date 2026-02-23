@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 const HERO_IMAGES = [
-  "/assets/IMG_4761.JPEG", // Ishitha Raj personal image
+  "/IMG_4761.JPEG", // Ishitha Raj personal image
   "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200", // Modern office/spatial
   "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200", // Event setup
 ];
