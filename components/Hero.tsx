@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPlanning, onViewWork }) => {
 
   return (
     <>
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-12 md:pt-16 lg:pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full grid grid-cols-1 xl:grid-cols-12 gap-6 md:gap-10 lg:gap-12 items-center relative z-10">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPlanning, onViewWork }) => {
           </div>
         </motion.div>
 
-        <div className="w-full xl:col-span-5 relative mt-6 md:mt-8 lg:mt-0">
+        <div className="w-full xl:col-span-5 relative mt-6 md:mt-8 lg:mt-0 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl mx-auto xl:mx-0">
           <motion.div 
             style={{ y: y1 }}
             className="relative z-20 w-full rounded-[30px] sm:rounded-[40px] md:rounded-[50px] lg:rounded-[60px] overflow-hidden shadow-xl md:shadow-2xl lg:shadow-3xl border-[6px] sm:border-[8px] md:border-[10px] lg:border-[12px] border-white/50 backdrop-blur-sm"
@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPlanning, onViewWork }) => {
           
           <motion.div 
             style={{ y: y2 }}
-            className="absolute -top-8 sm:-top-12 md:-top-16 lg:-top-20 -right-4 sm:-right-6 md:-right-10 lg:-right-12 z-10 aspect-square w-28 sm:w-32 md:w-48 lg:w-64 rounded-[20px] md:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-lg md:shadow-xl lg:shadow-2xl hidden md:block"
+            className="absolute -top-8 sm:-top-12 md:-top-16 lg:-top-20 -right-4 sm:-right-6 md:-right-10 lg:-right-12 z-10 aspect-square w-24 sm:w-28 md:w-40 lg:w-48 rounded-[20px] md:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-lg md:shadow-xl lg:shadow-2xl hidden md:block"
           >
             <img 
               alt="Spatial Design Detail" 
