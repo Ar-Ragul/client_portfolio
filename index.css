@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-zinc-900 antialiased selection:bg-black selection:text-white transition-colors duration-700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+.text-shadow-hero {
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
